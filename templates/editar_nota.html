@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Nota</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container" style="max-width: 500px; margin: 40px auto;">
+        <div class="form-nota">
+            <h3>✏️ Editar Nota</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="titulo" value="{{ nota.titulo }}" required>
+                <textarea name="conteudo" rows="6" required>{{ nota.conteudo }}</textarea>
+                <button type="submit">Salvar Alterações</button>
+                <a href="{% url 'dashboard' %}" class="btn-sair" style="display: block; text-align: center; margin-top: 10px;">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
